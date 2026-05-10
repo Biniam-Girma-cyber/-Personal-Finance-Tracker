@@ -1,10 +1,3 @@
-"""
-Personal Finance Tracker
-========================
-A command-line app to track income, expenses, view reports, and manage budgets.
-Data is saved to a JSON file (finance_data.json) automatically.
-"""
-
 import json
 import os
 from datetime import datetime
@@ -18,10 +11,7 @@ CATEGORIES = {
 }
 
 
-# ─────────────────────────────────────────────
-#  Data Persistence
-# ─────────────────────────────────────────────
-
+ 
 def load_data():
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, "r") as f:
@@ -32,11 +22,6 @@ def load_data():
 def save_data(data):
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=2)
-
-
-# ─────────────────────────────────────────────
-#  Display Helpers
-# ─────────────────────────────────────────────
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
@@ -60,14 +45,10 @@ def fmt_row(txn):
             f"{txn['description']:<25} {color}{sign}{fmt_money(txn['amount'])}{reset}")
 
 
-# ─────────────────────────────────────────────
-#  Core Functions
-# ─────────────────────────────────────────────
-
 def add_transaction(data):
     header("Add Transaction")
 
-    # Type
+    
     print("\n  Type:")
     print("  1. Income")
     print("  2. Expense")
@@ -77,7 +58,7 @@ def add_transaction(data):
         return
     txn_type = "income" if choice == "1" else "expense"
 
-    # Category
+
     cats = CATEGORIES[txn_type]
     print(f"\n  Categories:")
     for i, c in enumerate(cats, 1):
@@ -88,13 +69,11 @@ def add_transaction(data):
         return
     category = cats[int(cat_choice) - 1]
 
-    # Description
     description = input("\n  Description: ").strip()
     if not description:
         print("  Description cannot be empty.")
         return
 
-    # Amount
     try:
         amount = float(input("\n  Amount ($): ").strip())
         if amount <= 0:
@@ -103,7 +82,6 @@ def add_transaction(data):
         print("  Invalid amount.")
         return
 
-    # Date
     date_input = input("\n  Date (YYYY-MM-DD) [leave blank for today]: ").strip()
     if not date_input:
         date_input = datetime.today().strftime("%Y-%m-%d")
@@ -114,7 +92,6 @@ def add_transaction(data):
             print("  Invalid date format.")
             return
 
-    # Build & save
     txn_id = (max((t["id"] for t in data["transactions"]), default=0)) + 1
     txn = {
         "id":          txn_id,
@@ -334,7 +311,6 @@ def summary_dashboard(data):
     bal_color = "\033[92m" if mo_balance >= 0 else "\033[91m"
     print(f"    Balance : {bal_color}{fmt_money(mo_balance)}\033[0m")
 
-    # Top spending categories this month
     if mo_txns:
         cat_totals = defaultdict(float)
         for t in mo_txns:
@@ -363,24 +339,21 @@ def summary_dashboard(data):
     input("\n  Press Enter to continue...")
 
 
-# ─────────────────────────────────────────────
-#  Main Menu
-# ─────────────────────────────────────────────
 
 def main():
     data = load_data()
 
     while True:
         clear()
-        print("\n\033[1m  💰 Personal Finance Tracker\033[0m")
+        print("\n\033[1m   Personal Finance Tracker\033[0m")
         print("  " + "─" * 35)
-        print("  1. 📊  Dashboard")
-        print("  2. ➕  Add Transaction")
-        print("  3. 📋  View All Transactions")
-        print("  4. 🗑   Delete Transaction")
-        print("  5. 📅  Monthly Report")
-        print("  6. 🎯  Manage Budgets")
-        print("  7. 🚪  Exit")
+        print("  1.  Dashboard")
+        print("  2.  Add Transaction")
+        print("  3.  View All Transactions")
+        print("  4.  Delete Transaction")
+        print("  5.  Monthly Report")
+        print("  6.  Manage Budgets")
+        print("  7.  Exit")
         print()
 
         choice = input("  Choose an option (1-7): ").strip()

@@ -1,10 +1,10 @@
-# 💰 Personal Finance Tracker
+#  Personal Finance Tracker
 
 A lightweight, command-line personal finance tracker built in pure Python — no external libraries required. Track income and expenses, set monthly budgets, and view reports — all from your terminal.
 
 ---
 
-## 📋 Features
+##  Features
 
 - **Dashboard** — at-a-glance summary of all-time and current month finances, top spending categories, and budget alerts
 - **Add Transactions** — log income or expenses with category, description, amount, and date
@@ -16,7 +16,7 @@ A lightweight, command-line personal finance tracker built in pure Python — no
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Requirements
 
@@ -28,21 +28,21 @@ A lightweight, command-line personal finance tracker built in pure Python — no
 1. Download or clone the file:
 
 ```bash
-git clone https://github.com/yourname/finance-tracker.git
-cd finance-tracker
+git clone https://github.com/Biniam-Girma-cyber/personal_finance.git
+cd personal_finance
 ```
 
-Or simply save `finance_tracker.py` to a folder of your choice.
+Or simply save `personal_finance.py` to a folder of your choice.
 
-2. Run the program:
+2.Run the program:
 
 ```bash
-python finance_tracker.py
+python personal_finance.py
 ```
 
 ---
 
-## 🗂 Project Structure
+##  Project Structure
 
 ```
 finance-tracker/
@@ -53,20 +53,20 @@ finance-tracker/
 
 ---
 
-## 📖 How to Use
+##  How to Use
 
 ### Main Menu
 
 ```
-💰 Personal Finance Tracker
+ Personal Finance Tracker
 ───────────────────────────────────
-  1. 📊  Dashboard
-  2. ➕  Add Transaction
-  3. 📋  View All Transactions
-  4. 🗑   Delete Transaction
-  5. 📅  Monthly Report
-  6. 🎯  Manage Budgets
-  7. 🚪  Exit
+  1.   Dashboard
+  2.   Add Transaction
+  3.   View All Transactions
+  4.   Delete Transaction
+  5.   Monthly Report
+  6.   Manage Budgets
+  7.   Exit
 ```
 
 ### Adding a Transaction
@@ -113,7 +113,7 @@ Budget warnings appear in the **Dashboard** and **Monthly Report** whenever spen
 
 ---
 
-## 💾 Data Storage
+##  Data Storage
 
 All data is saved to `finance_data.json` in the same directory as the script. The file is created automatically on first run.
 
@@ -142,7 +142,7 @@ You can back up this file at any time to preserve your data.
 
 ---
 
-## 🖥 Example Output
+##  Example Output
 
 ```
   ALL TIME:
@@ -166,7 +166,7 @@ You can back up this file at any time to preserve your data.
 
 ---
 
-## 🛠 Customization
+##  Customization
 
 To add your own categories, edit the `CATEGORIES` dictionary near the top of `finance_tracker.py`:
 
@@ -180,6 +180,6 @@ CATEGORIES = {
 
 ---
 
-## 📄 License
+## License
 
 MIT License — free to use, modify, and distribute.
